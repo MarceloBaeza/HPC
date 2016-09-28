@@ -1,3 +1,7 @@
+/*Se trabajo en un computador personal, por lo que compilación sería: nvcc
+ * -std=c++11 -D_MWAITXINTRIN_H_INCLUDED MultTiles.cu -o mul $(pkg-config --libs
+ * opencv) */
+
 #include <chrono>
 #include <ctime>
 #include <cuda.h>
