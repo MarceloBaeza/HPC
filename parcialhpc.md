@@ -69,9 +69,9 @@ Una vez accede el hilo a la memoria compartida, es decir al Tile respectivo, est
 
 Para el presente caso de estudio se ha desarrollado un programa en lenguaje C/C++ el cual calcula la multiplicación de matrices, realizando su procesamiento tanto en CPU como en GPU. Los valores estudiados son los siguientes:
 
-![](http://puu.sh/rqfUW/5d5b173b7c.png)
+![](http://puu.sh/rrTcJ/bbe1b6a757.png)
 
- [Imagen6. Tiempos de procesamiento CPU/GPU](http://puu.sh/rqfUW/5d5b173b7c.png)
+ [Imagen6. Tiempos de procesamiento CPU/GPU](hhttp://puu.sh/rrTcJ/bbe1b6a757.png)
 
 Se puede notar como el tiempo en CPU aumenta radicalmente, esto es debido a que la operación es realizada paso por paso, es decir, cada multiplicación fila x columna es desarrollada una a la vez hasta completar la matriz resultante. 
 
@@ -81,15 +81,17 @@ Se puede notar como el tiempo en CPU aumenta radicalmente, esto es debido a que 
 
 A diferencia de la GPU, el proceso de multiplicar matrices es desarrollado con hilos donde además se trabaja según la cantidad de núcleos que este posee. Una sección de la matriz es tomada y llevada a memoria compartida donde cada hilo accede a esta memoria compartida y realiza el cálculo pertinente. (véase Imagen4 e Imagen5), además de que la ejecución de hilos es de manera paralela por lo que mientras un hilo realiza una operación existe otro hilo accediendo a memoria compartida para realizar otra operación de la matriz. 
 
-![](http://puu.sh/rqfVd/bb02d48e07.png)
+![](http://puu.sh/rrTlO/005073baa0.png)
 
- [Imagen8. Velocidad de procesamiento en GPU](http://puu.sh/rqfVd/bb02d48e07.png)
+ [Imagen8. Velocidad de procesamiento en GPU](http://puu.sh/rrTlO/005073baa0.png)
 
 ####Tiempos durante copia de datos tanto de host a device como de device a host
 
 ![](http://puu.sh/rqfTd/ce3261e41b.png)
 
  [Imagen9. Tiempos durante traspaso de datos entre host y device.]()
+
+El proceso que mas toma tiempo al momento de desarrollar cálculos en GPU es el traspaso de datos de device al host.
 
 ####Comparación de tiempos de procesamiento en CPU v/s GPU
 
@@ -105,15 +107,15 @@ En informática, la aceleración por hardware es el uso del hardware para realiz
 El hardware que realiza la aceleración, cuando se encuentra en una unidad separada de la CPU, es denominado acelerador por hardware, o a menudo más específicamente como un acelerador gráfico o unidad de coma flotante, etc. Estos términos, sin embargo, son antiguos y se han sustituido por términos menos descriptivos como "placa de vídeo" o "placa gráfica".
 Ahora bien, para obtener la aceleración respectiva en este caso de estudio solo basta dividir la velocidad del tiempo de procesamiento en CPU por tiempo de procesamiento en GPU.
 
-![](http://puu.sh/rqfPv/06a4a2bd7a.png)
+![](http://puu.sh/rrTbW/13dc602c1b.png)
 
- [Imagen11. Tabla de aceleración por hardware.](http://puu.sh/rqfPv/06a4a2bd7a.png)
+ [Imagen11. Tabla de aceleración por hardware.](http://puu.sh/rrTbW/13dc602c1b.png)
 
 Como puede observarse en la tabla la aceleración va aumentando a medida que el tamaño de la matriz aumenta, para una mejor percepción véase el siguiente gráfico.
 
-![](http://puu.sh/rqfSm/1c3019cdd3.png)
+![](http://puu.sh/rrT8y/9cb860e120.png)
 
- [Imagen12. Aceleración por hardware](http://puu.sh/rqfSm/1c3019cdd3.png)
+ [Imagen12. Aceleración por hardware](http://puu.sh/rrT8y/9cb860e120.png)
 
 Como puede observarse en el gráfico anterior la aceleración indica que el procesamiento en GPU es bastante satisfactorio para procesamiento de cálculos colosales sin embargo esto depende de que es lo que se desea calcular. 
 La GPU hoy en día cumple la mayor parte de sus funcionalidades a nivel de calidad gráfica, todo lo que se puede observar, como gran ejemplo los videojuegos, para cálculos donde el desempeño debe ser realizado a nivel de pixel.
